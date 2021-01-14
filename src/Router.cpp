@@ -21,7 +21,7 @@ DWORD WINAPI Router::workThread(LPVOID lpParam){
 			clearMacTable(router_p);
 			counter_1 = 0;
 		}
-		// Sleep(1);
+		Sleep(1);
 		capNext(router_p);
 	}
 	return 0;
@@ -73,7 +73,7 @@ int Router::match(MyRouter_Record* _record_, IPAddr_t _IP_){
 
 void Router::dealARP(Router* router_p, pcap_pkthdr* pcap_header, const u_char* pcap_data){
 	// 记录日志
-	//ARPlog(router_p, pcap_header, pcap_data);
+	// ARPlog(router_p, pcap_header, pcap_data);
 	struct ARPFrame* ARP = (struct ARPFrame*)pcap_data;
 	// 记录ARP
 	for (int i = 0; i < _BOBLI_ROUTER_H_MACTABLE_LEN; i = i + 1) {

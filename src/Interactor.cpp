@@ -103,6 +103,7 @@ pcap_t* Interactor::selDev(){
 		for (int i = 1; curdev != NULL; i = i + 1) {
 			if (n == i) {
 				this->handle = pcap_open_live(curdev->name, 65535, 0, 1000, errbuf);
+				pcap_setnonblock(this->handle, 1, errbuf);
 				// ±£´æIP
 				this->saveIPs(curdev);
 				pcap_freealldevs(alldevs);
