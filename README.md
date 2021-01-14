@@ -1,14 +1,40 @@
-# brouter
- Beautifule Router. A router with elegance.
+# erouter
+ WinPcap实现的简单路由器，能够通过ping测试和tracert测试。
 
- ## Directory
+## 特性
 
-* ./src -- Source files.
-  * ./src/config.h -- Header file.
-  * ./src/Framer.h/cpp -- Framer class to handle ethernet frame.
-  * ./src/Router.h/cpp -- Router class to execute routing procedure.
-  * ./src/Interactor.h/cpp -- Interactor class to interact with user input.
-  * ./src/main.cpp -- Main function file.
+目前支持有：
+
+* MAC-IP表的动态维护
+* ICMP超时报文回送
+* 静态路由表
+
+ ## 目录
+
+* ./src -- 源文件
+  * ./src/config.h --头文件
+  * ./src/Framer.h/cpp -- 以太网数据帧处理
+  * ./src/Router.h/cpp -- 路由器头文件
+  * ./src/Interactor.h/cpp -- 交互者的头文件
+  * ./src/main.cpp -- 程序入口
+
+## 使用
+
+本仓库只包含了源文件和示例输出文件，由于Visual Studio项目过大，WinPcap目录每台电脑都不同，因此不提供项目文件。
+
+运行示例输出文件的要求：
+
+* Windows Server 2003+
+* 安装了VC++运行时环境和WinPcap驱动
+
+编译本项目的要求：
+
+* WIndows Server 2003+
+* Visual Studio 2015+
+* 安装了MSVC套件
+* WdpPack开发者目录
+
+由于Visual会生成一些警告组织程序的正常编译，建议在预处理器中定义`WPCAP;HAVE_REMOTE;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS`。如果幸运的话，你现在可以成功编译本仓库。
 
 ## Usage
 
